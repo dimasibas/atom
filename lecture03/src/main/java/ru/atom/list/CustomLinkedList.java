@@ -11,7 +11,7 @@ import java.util.ListIterator;
 public class CustomLinkedList<E> implements List<E> {
 
    private ListNode<E> first = null;
-   privare int size = 0;
+   private int size = 0;
 
     @Override
     public int size()
