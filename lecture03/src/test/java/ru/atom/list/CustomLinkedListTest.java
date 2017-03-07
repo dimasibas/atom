@@ -70,4 +70,41 @@ public class CustomLinkedListTest {
         assertThat(intList.contains(38), is(true));
         assertThat(intList.size(), is(1));
     }
+
+
+@Test
+    public void indexOfTest() throws Exception {
+        assertThat(intList.indexOf(42), is(0));
+        assertThat(intList.indexOf(43), is(-1));
+    }
+
+    @Test
+    public void clearTest() throws Exception {
+        intList.clear();
+        assertThat(intList.size(), is(equalTo(0)));
+    }
+
+    @Test
+    public void getTest() throws Exception {
+        assertThat(intList.get(1), is(equalTo(38)));
+        assertThat(intList.get(0), is(equalTo(42)));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getWithExceptionTest1() throws Exception {
+        intList.get(3);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getWithExceptionTest2() throws Exception {
+        intList.get(-1);
+    }
+
+    @Test
+    public void containsAllTest() throws Exception {
+        List<Integer> list1 = Arrays.asList(38, 42);
+        List<Integer> list2 = Arrays.asList(38, 43);
+        assertThat(intList.containsAll(list1), is(equalTo(true)));
+        assertThat(intList.containsAll(list2), is(equalTo(false)));
+    }
 }
